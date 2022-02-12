@@ -1,0 +1,113 @@
+{% load static %}
+    <!-- Topbar Start -->
+    <div class="container-fluid d-none d-lg-block">
+        <div class="row align-items-center bg-dark px-lg-5">
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-sm bg-dark p-0">
+                    <ul class="navbar-nav ml-n2">
+                        <li class="nav-item border-right border-secondary">
+                            <a class="nav-link text-body small" href="#" >
+                                <strong style="color:#fff;">{{date|date:"d F Y "}}</strong>
+                            </a>
+                        </li>
+                        <li class="nav-item border-right border-secondary" style="background-color:#077804;">
+                            <a class="nav-link text-body small" href="#">
+                                <strong style="color:#fff;">{{date|date:"H:i"}}</strong>
+                            </a>
+                        </li>
+                        <li class="nav-item border-right border-secondary">
+                            <a class="nav-link text-body small" href="{% url 'contact:contact' %}">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-body small" href="#">Login</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 text-right d-none d-md-block">
+                <nav class="navbar navbar-expand-sm bg-dark p-0">
+                    <ul class="navbar-nav ml-auto mr-n2">
+                        <li class="nav-item">
+                            <a class="nav-link text-body" href="#"><small class="fab fa-twitter"></small></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-body" href="#"><small class="fab fa-facebook-f"></small></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-body" href="#"><small class="fab fa-linkedin-in"></small></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-body" href="#"><small class="fab fa-instagram"></small></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-body" href="#"><small class="fab fa-google-plus-g"></small></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-body" href="#"><small class="fab fa-youtube"></small></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="row align-items-center bg-white py-3 px-lg-5">
+            <div class="col-lg-4">
+                <a href="{% url 'home:index' %}" class="navbar-brand p-0 d-none d-lg-block">
+                    <h1 class="m-0 display-4 text-uppercase text-primary">
+                        <span style="color:#077804;">
+                            Nourdine
+                        </span>
+                        <span class="text-secondary font-weight-normal"> Jamah</span>
+                    </h1>
+                </a>
+            </div>
+            {% for Ht in  PubData %}
+                <div class="col-lg-8 text-center text-lg-right">
+                    <a href="{{Ht.urls}}">
+                        <img src="{{Ht.bannerHt.url}}" alt="{{Ht.title}}" class="img-fluid">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Topbar End -->
+<!-- Navbar Start -->
+<div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
+        <a href="{% url 'home:index' %}" class="navbar-brand d-block d-lg-none">
+            <h1 class="m-0 display-4 text-uppercase text-primary">
+                <span style="color:#077804;">
+                    Nourdine
+                </span>
+                <span class="text-white font-weight-normal"> Jamah</span>
+            </h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse" style="background-color:#077804;color:white;">
+            <div class="navbar-nav mr-auto py-0">
+                <a href="{% url 'home:index' %}" class="nav-item nav-link active">Accueil</a>
+                <a href="#" class="nav-item nav-link">Présentation</a>
+                <a href="{% url 'videos:vid' %}" class="nav-item nav-link active">Nos Videos</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Organisme</a>
+                    <div class="dropdown-menu rounded-0 m-0">
+                        <a href="#" class="dropdown-item">Abengourou</a>
+                        <a href="#" class="dropdown-item">MSCOB - Burkina</a>
+                        <a href="#" class="dropdown-item">Nourdine France</a>
+                    </div>
+                </div>
+                <a href="{% url 'post:pub' %}" class="nav-item nav-link">Notre Blog</a>
+                <a href="{% url 'contact:contact' %}" class="nav-item nav-link">Contact</a>
+            </div>
+            <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px;">
+                <input type="text" class="form-control border-0" placeholder="Recherche ici...">
+                <div class="input-group-append">
+                    <button class="input-group-text bg-primary text-dark border-0 px-3"><i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
