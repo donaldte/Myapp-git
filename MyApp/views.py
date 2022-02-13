@@ -8,9 +8,11 @@ from videos.models import Videos
 # Create your views here.
 def banier(request):
      BanPub = BannierePubGt.objects.all()[:3]
-     return render(request, 'MyApp/banier.html', context)
+     return render(request, 'MyApp/banier.html', {"ban":BanPub})
    
-
+"""
+ce banier.html poura etre introduire partout ou tu veux
+"""
 
 def home(request):
     #Recup banniere depuis la database
