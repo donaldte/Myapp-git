@@ -6,6 +6,10 @@ from .models import PubGt, PubHt, logoOrganism, Programmes_Semaine, BannierePubG
 from videos.models import Videos
 
 # Create your views here.
+def banier(request):
+     BanPub = BannierePubGt.objects.all()[:3]
+     return render(request, 'MyApp/banier.html', context)
+   
 
 
 def home(request):
@@ -15,7 +19,6 @@ def home(request):
     Pubgt = PubGt.objects.all()[:1]
     Publog = logoOrganism.objects.all()
     PgreSemaine = Programmes_Semaine.objects.all()[:5]
-    BanPub = BannierePubGt.objects.all()[:3]
     versets = Versets.objects.all()[:1]
 
     date = datetime.today()
