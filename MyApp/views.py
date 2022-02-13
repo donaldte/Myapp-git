@@ -7,6 +7,9 @@ from videos.models import Videos
 
 # Create your views here.
 
+def bar(request, *args, **kwargs):
+    BanPub = BannierePubGt.objects.all()[:3]
+    return render(request, 'MyApp/barnier.html', {'barnier':BanPub})
 
 def home(request):
     #Recup banniere depuis la database
@@ -15,7 +18,7 @@ def home(request):
     Pubgt = PubGt.objects.all()[:1]
     Publog = logoOrganism.objects.all()
     PgreSemaine = Programmes_Semaine.objects.all()[:5]
-    BanPub = BannierePubGt.objects.all()[:3]
+    
     versets = Versets.objects.all()[:1]
 
     date = datetime.today()
@@ -24,7 +27,6 @@ def home(request):
         'PubGt': Pubgt,
         'C_log': Publog,
         'Pweek': PgreSemaine,
-        'banniere': BanPub,
         'vers': versets,
         'date': date,
     }
